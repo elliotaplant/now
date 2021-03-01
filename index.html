@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Now</title>
+    <style media="screen">
+    h1 {
+      text-align: center;
+    }
+      table {
+        width: 90%;
+        margin: 0 auto;
+      }
+      th, td {
+        text-align: right;
+      }
+      tr>td:first-child {
+        font-weight: bold;
+      }
+      body {
+        font-family: monospace;
+        font-size: 3vw;
+      }
+      footer {
+        margin-top: 10vh;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <h1>NOW</h1>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>12-Hour</th>
+          <th>24-Hour</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Local</td>
+          <td id="localDate"></td>
+          <td id="local12"></td>
+          <td id="local24"></td>
+        </tr>
+        <tr>
+          <td>UTC</td>
+          <td id="utcDate"></td>
+          <td id="utc12"></td>
+          <td id="utc24"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>Created by <a href="https://elliotplant.com">Elliot Plant</a></footer>
+
+    <script type="text/javascript">
+      const pad = num => String(num).padStart(2, 0);
+      const update = () => {
+        const now = new Date()
+        localDate.innerText = `${now.getFullYear()}-${pad(now.getMonth())}-${pad(now.getDate())}`
+        utcDate.innerText = now.toISOString().slice(0, 10);
+
+        local12.innerText = now.toLocaleTimeString()
+        utc12.innerText = now.toLocaleTimeString('en-US', { timeZone: 'UTC' })
+
+        local24.innerText = now.toLocaleTimeString('en-GB')
+        utc24.innerText = now.toLocaleTimeString('en-GB', { timeZone: 'UTC' })
+      };
+      update();
+      setInterval(update, 1000)
+    </script>
+  </body>
+</html>
