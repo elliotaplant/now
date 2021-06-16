@@ -5,9 +5,23 @@
     <link rel="shortcut icon" href="favicon.png">
     <title>Now</title>
     <style media="screen">
-    h1 {
-      text-align: center;
-    }
+      html, body {
+        min-height: 100vh;
+      }
+      body {
+        font-family: monospace;
+        font-size: 3vw;
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        text-align: center;
+      }
+      div {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+      }
       table {
         width: 90%;
         margin: 0 auto;
@@ -18,42 +32,40 @@
       tr>td:first-child {
         font-weight: bold;
       }
-      body {
-        font-family: monospace;
-        font-size: 3vw;
-      }
       footer {
-        margin-top: 10vh;
+        margin: 10vh 2vh 4vh;
         text-align: center;
       }
     </style>
   </head>
   <body>
-    <table>
-      <h1>NOW</h1>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Date</th>
-          <th>12-Hour</th>
-          <th>24-Hour</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Local</td>
-          <td id="localDate"></td>
-          <td id="local12"></td>
-          <td id="local24"></td>
-        </tr>
-        <tr>
-          <td>UTC</td>
-          <td id="utcDate"></td>
-          <td id="utc12"></td>
-          <td id="utc24"></td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>NOW</h1>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Date</th>
+            <th>12-Hour</th>
+            <th>24-Hour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Local</td>
+            <td id="localDate"></td>
+            <td id="local12"></td>
+            <td id="local24"></td>
+          </tr>
+          <tr>
+            <td>UTC</td>
+            <td id="utcDate"></td>
+            <td id="utc12"></td>
+            <td id="utc24"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <footer>Created by <a href="https://elliotplant.com">Elliot Plant</a></footer>
 
