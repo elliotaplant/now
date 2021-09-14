@@ -73,7 +73,7 @@
       const pad = num => String(num).padStart(2, 0);
       const update = () => {
         const now = new Date()
-        localDate.innerText = `${now.getFullYear()}-${pad(now.getMonth())}-${pad(now.getDate())}`
+        localDate.innerText = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
         utcDate.innerText = now.toISOString().slice(0, 10);
 
         local12.innerText = now.toLocaleTimeString()
